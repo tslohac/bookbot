@@ -6,27 +6,37 @@ def get_book_text(filepath):
         file_contents = f.read()
         return file_contents
     
-# books path
+
   
 
 
 def main():
-    # import built-in sys module
-    import sys
+
+    import sys                                          # import built-in sys module
+
     if len(sys.argv) <2:
         print(f"Usage: python3 main.py <path_to_book>")
         sys.exit(1)
-    relative_path = sys.argv[1]
+
+    relative_path = sys.argv[1]                         # books path
+
     the_book = get_book_text(relative_path)             # the book's text
+
     num_words = get_num_words(the_book)                 # number of all the words in the book
 
-    character_count = count_characters(the_book)        # the original dictionary representing the count of each character in the book
+    character_count = count_characters(the_book)
+
     # print(f"{num_words} words found in the document")
     # print(character_count)
+
     new_list = dict_to_list(character_count)
+
     # print(new_list)
+
     new_list.sort(reverse=True, key=sort_on)
+
     # print(new_list)
+
     print("============ BOOKBOT ============")
     print(f"Analyzing book found at {relative_path}...")
     print("----------- Word Count ----------")
